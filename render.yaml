@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: hiring-agent
+    runtime: python
+    buildCommand: pip install -r requirements.txt && cd frontend && npm install && npm run build
+    startCommand: python app.py
+    envVars:
+      - key: LLM_PROVIDER
+        sync: false
+      - key: DEFAULT_MODEL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
